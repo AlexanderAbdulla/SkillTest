@@ -1,6 +1,6 @@
 <?php
 
-    //Includes the stringAlgorithm functions written
+    //Includes the stringAlgorithm class
     include('stringAlgorithm.php');
  
     //First string from our form

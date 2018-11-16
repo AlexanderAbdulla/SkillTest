@@ -17,12 +17,14 @@
         public $secondStringCounter;
         //Counter for occurences of the third string
         public $thirdStringCounter; 
+        //Random string length
+        private $randomStringLength = 1024;
 
         /*Constructs a stringAlgorithm */
         public function __construct($firstString, $secondString,  $thirdString){
             $this->randomString = $this->generateRandomString();
             $this->firstString = $firstString;
-            $this->seconddString = $secondString;
+            $this->secondString = $secondString;
             $this->thirdString = $thirdString;
             $this->firstStringCounter = 0;
             $this->secondStringCounter = 0;
@@ -36,13 +38,11 @@
             $allCharacters = "qwertyuiopasdfghjklzxcvbnm";
             //Total number of characters 
             $totalNumOfCharacters = strlen($allCharacters);
-            //Length of our random string
-            $randomStringLength = 1024;
             //Empty random string to be populated
             $randomString = '';
             
             /* Iterate through the random string and populate it  */
-            for($i = 0; $i < $randomStringLength; $i++){
+            for($i = 0; $i < $this->randomStringLength; $i++){
                 $randomIndex = mt_rand(0, $totalNumOfCharacters - 1);
                 $randomString .= $allCharacters[$randomIndex];
             }
@@ -52,7 +52,7 @@
         
         /*Checks for occurences of our three strings in the randomly generated string and updates counters*/
         function checkOccurences(){
-            for($i = 0; $i < 1024; $i++){
+            for($i = 0; $i < $this->randomStringLength; $i++){
             
                 //Checks that the first letter of the first string matches 
                 if($this->firstString[0] === $this->randomString[$i]){
@@ -79,7 +79,7 @@
                     }
                 }
         
-                //Checks that the first letter of the second string matches
+                //Checks that the first letter of the third string matches
                 if($this->secondString[0] === $this->randomString[$i]){
                     //Sets a counter for character matches
                     $matchCounter = 0;
@@ -100,7 +100,6 @@
                                 $this->secondStringCounter++;
                             }
                         }
-        
                     }
                 }
         
