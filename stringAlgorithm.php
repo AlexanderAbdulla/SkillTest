@@ -50,12 +50,11 @@
             return $randomString;
         }
         
-        /*Checks for occurences of our three strings in the randomly generated string */
+        /*Checks for occurences of our three strings in the randomly generated string and updates counters*/
         function checkOccurences(){
             for($i = 0; $i < 1024; $i++){
             
                 //Checks that the first letter of the first string matches 
-                //checkString($firstString);
                 if($this->firstString[0] === $this->randomString[$i]){
                     //Sets a counter for character matches
                     $matchCounter = 0;
