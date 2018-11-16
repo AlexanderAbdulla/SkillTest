@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            /* Takes the string values from the form and checks if they are valid before sending a request */
+            function validateForm() {
+                var stringOne = document.forms["stringForm"]["firstString"].value;
+                var stringTwo = document.forms["stringForm"]["secondString"].value;
+                var stringThree = document.forms["stringForm"]["firstString"].value;
+                
+                //Checks if string one is empty or contains improper characters
+                if(stringOne === "" || !stringOne.match(/^[A-Z]+$/i)){
+                    alert("String one is empty or contains non alphabet characters")
+                    return false;
+                }
+                
+                //Checks if string two is empty or contains improper characters
+                if(stringTwo === "" || !stringTwo.match(/^[A-Z]+$/i)){
+                    alert("String two is empty or contains non alphabet characters")
+                    return false;
+                }
+
+                //Checks if string one is empty or contains improper characters
+                if(stringThree === "" || !stringThree.match(/^[A-Z]+$/i)){
+                    alert("String three is empty or contains non alphabet characters")
+                    return false;
+                }
+
+            }
+        </script>  
+    </head>
+    <body>
+        <form id ="stringForm" action = "results.php" method = "post" onsubmit="return validateForm()">
+            First String
+            <input type="text" name="firstString" maxlength="7"/><br>
+            Second String
+            <input type="text" name="secondString" maxlength="7" maxlength="7"><br>
+            Third String
+            <input type="text" name="thirdString" maxlength="7"><br>
+            <input type="submit" value = "Submit">
+        </form>
+    </body>
+</html>
